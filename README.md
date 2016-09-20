@@ -1,6 +1,6 @@
 # Design Patterns
 
-This repository is a collection of javascript design patterns. This is a **table-of-contents** style repository; none of this code is meant to execute in place. It's for reading. If you'd like to add a pattern or idea, clone the repository, make a new javascript file in there, and name it *(x+1)-<sensible-name>.js*, where *x* is the highest number prefix in this repository. Then submit a pull request! Don't forget to add a line describing your pattern to this file!
+This repository is a collection of javascript design patterns. This is a **table-of-contents** style repository; none of this code is meant to execute in place. It's for reading. If you'd like to add a pattern or idea, clone the repository, make a new javascript file in there, and name it *(x+1)-a-sensible-name.js*, where *x* is the highest number prefix in this repository. Then submit a pull request! Don't forget to add a line describing your pattern to this file!
 
 ## Table of Contents
 
