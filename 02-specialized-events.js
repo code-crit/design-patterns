@@ -20,14 +20,14 @@ var mobileBreakPoint = 769;
  * something to do when the window is in "mobile" mode
  */
 function mobileAction( event ) {
-    $( 'body' ).text('It\'s Mobile.');
+    $( 'body h1' ).text('It\'s Mobile.');
 }
 
 /**
  * something to do when the window is in "mobile" mode
  */
 function desktopAction( event ) {
-    $( 'body' ).text('It\'s Desktop.');
+    $( 'body h1' ).text('It\'s Desktop.');
 }
 
 
@@ -43,6 +43,8 @@ function desktopAction( event ) {
  * @return (Event -> ()) a handler which fires mobile if the window transitions to mobile, and desktop if it transitions to desktop.
  */
 function decideMobileOrDesktop( mobile, desktop ) {
+
+    console.log('resize');
 
     var isMobile = false;
     var isDesktop = false;
@@ -84,9 +86,12 @@ $(document).ready( function() {
 
     /**
      * first, install out 'custom event generating handler' on the original event stream,
-     * in this case, resize.
+     * in this case, resize. We'll also listen to a 'page-state-init' event which is a
+     * custom event that we'll trigger after our event handler is loaded.
      */
+    $(window).on('page-state-init', mobileAndDesktopEvents );
     $(window).on('resize', mobileAndDesktopEvents );
+
 
     /**
      * listen to out new event streams, and isntall our appropriate handlers on them.
@@ -95,9 +100,9 @@ $(document).ready( function() {
     $(window).on('mobile-size', mobileAction);
 
     /**
-     * trigger a resize when the window loads, so that we can get into a good initial state.
+     * trigger an event when the window loads, so that we can get into a good initial state.
      */
-    $(window).trigger('resize');
+    $(window).trigger('page-state-init');
 
 });
 
